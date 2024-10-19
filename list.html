@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liste des Produits</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js" defer></script>
+
+    <script defer>
+      window.onload = function () {
+        const productList = document.getElementById("product-list");
+        products.forEach((product, index) => {
+          const productItem = `
+          <div class="column is-one-fifth">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-5by3">
+                  <img src="${product.image}" alt="${product.name}">
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-size-6	">${product.name}</p>
+                <p class="subtitle  is-size-7">${product.price} €</p>
+                <a href="single.html?id=${index}" class="button is-link has-background-black is-size-7">Voir Détails</a>
+              </div>
+            </div>
+          </div>`;
+          productList.innerHTML += productItem;
+        });
+      };
+    </script>
+  </head>
+  <figure>
+    <a href="./index.html">
+      <img
+      src="./IMG/Harley-Davidson-Motorcycles-Logo.png"
+      alt="logo"
+      class="logo p-5"
+    />
+    </a>
+  </figure>
+  <header class="container">
+    <nav class="breadcrumb has-bullet-separator p-5" aria-label="breadcrumbs">
+      <ul>
+        <li><a class="has-text-white" href="./index.html" aria-current="page">HOME</a></li>
+        <li class="is-active"><a href="./list.html" aria-current="page">MODÈLES</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <body class="has-background-black">
+    <section class="section">
+      <div class="container">
+        <h1 class="title has-text-white">Nos Modèles 2024</h1>
+        <div class="columns is-multiline" id="product-list"></div>
+      </div>
+    </section>
+  </body>
+</html>

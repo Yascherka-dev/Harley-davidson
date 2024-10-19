@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détails du Produit</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script defer>
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+      const product = products[productId];
+
+      if (product) {
+        document.getElementById('product-name').innerText = product.name;
+        document.getElementById('product-price').innerText = product.price + ' €';
+        document.getElementById('product-description').innerText = product.description;
+        document.getElementById('product-image').src = product.image;
+      }
+    };
+  </script>
+</head>
+<figure>
+  <a href="./index.html">
+    <img
+    src="./IMG/Harley-Davidson-Motorcycles-Logo.png"
+    alt="logo"
+    class="logo p-5"
+  />
+  </a>
+</figure>
+<header class="container has-background-black">
+  <nav class="breadcrumb has-bullet-separator p-5" aria-label="breadcrumbs">
+    <ul>
+      <li class="has-text-white"></li><a class="has-text-white" href="./index.html" aria-current="page">HOME</a></li>
+      <li class="has-text-white"><a class="has-text-white" href="./list.html" aria-current="page">MODÈLES</a></li>
+      <li class="is-active has-text-white"><a href="./single.html" aria-current="page" id="product-name"></a></li>
+    </ul>
+    </ul>
+  </nav>
+</header>
+<body  class="has-background-black">
+
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="column is-half">
+          <figure class="container">
+            <img id="product-image" src="" alt="img">
+            <style>
+                #product-image {
+                  width: 1000px; 
+                  height: auto; 
+                }
+              </style>
+        </figure> 
+        </div>
+        <div class="column is-half">
+          <h1 class="title" id="product-name"></h1>
+          <p class="subtitle has-text-white is-size-6" id="product-price">€</p>
+          <p id="product-description"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
